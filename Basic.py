@@ -1,18 +1,18 @@
-class Basic:
+class Basic:  # This is the superclass that will be inherited by other specialised calculators
 
-    def add(self, x, y):  # Add method
+    def add(self, x, y):
         return x + y
 
-    def subtract(self, x, y):  # Subtract method
+    def subtract(self, x, y):
         return x - y
 
-    def multiply(self, x, y):  # Multiplication method
+    def multiply(self, x, y):
         return x * y
 
-    def divide(self, x, y):  # Division method
+    def divide(self, x, y):
         return x / y
 
-    def indices(self, num,power): # Indices method
+    def indices(self, num,power):
         return num**power
 
 
