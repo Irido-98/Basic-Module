@@ -31,7 +31,7 @@ while True:
     ch = int(input("Select operation: "))
 
     # Make sure the user have entered the valid choice
-    if ch in (1, 2, 3, 4, 5,6):
+    if ch in (1, 2, 3, 4, 5, 6):
 
         # first check whether user want to exit
         if (ch == 6):
@@ -39,8 +39,8 @@ while True:
             break
 
         # If not then ask fo the input and call appropriate methods
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
+        x = float(input("Enter first number: "))
+        y = float(input("Enter second number: "))
 
         # Print the equation and output
         if ch == 1:
