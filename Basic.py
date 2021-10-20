@@ -1,18 +1,18 @@
 class Basic:  # This is the superclass that will be inherited by other specialised calculators
 
-    def add(self, x, y):
-        return x + y
+    def add(self, a, b):
+        return a + b
 
-    def subtract(self, x, y):
-        return x - y
+    def subtract(self, a, b):
+        return a - b
 
-    def multiply(self, x, y):
-        return x * y
+    def multiply(self, a, b):
+        return a * b
 
-    def divide(self, x, y):
-        return x / y
+    def divide(self, a, b):
+        return a / b
 
-    def indices(self, num,power):
+    def indices(self, num, power):
         return num**power
 
 
@@ -34,7 +34,7 @@ while True:
     if ch in (1, 2, 3, 4, 5, 6):
 
         # first check whether user want to exit
-        if (ch == 6):
+        if ch == 6:
             print('Bye!')
             break
 
