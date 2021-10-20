@@ -44,15 +44,24 @@ while True:
 
         # Print the equation and output
         if ch == 1:
-            print(x, "+", y, "=", my_cl.add(x, y))
+            result = my_cl.add(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 2:
-            print(x, "-", y, "=", my_cl.subtract(x, y))
+            result = my_cl.subtract(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 3:
-            print(x, "*", y, "=", my_cl.multiply(x, y))
+            result = my_cl.multiply(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 4:
-            print(x, "/", y, "=", my_cl.divide(x, y))
+            result = my_cl.divide(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 5:
-            print(x, "**", y, "=", my_cl.indices(x, y))
+            result = my_cl.indices(x, y)
+            print(x, "+", y, "=", result)
 
     else:
         print("Invalid Input")
