@@ -48,23 +48,32 @@ while True:
         # Print the equation and output
         if ch == 1:
             result = my_cl.add(x, y)
-            print(x, "+", y, "=", frac(str(result)))
+            print(x, "+", y, "=", frac(str(round(result, 10))))
 
         elif ch == 2:
             result = my_cl.subtract(x, y)
-            print(x, "+", y, "=", frac(str(result)))
+            print(x, "-", y, "=", frac(str(round(result, 10))))
 
         elif ch == 3:
             result = my_cl.multiply(x, y)
-            print(x, "+", y, "=", frac(str(result)))
+            print(x, "*", y, "=", frac(str(round(result, 10))))
 
         elif ch == 4:
             result = my_cl.divide(x, y)
-            print(x, "+", y, "=", frac(str(result)))
+            print(x, "/", y, "=", frac(str(round(result, 10))))
 
         elif ch == 5:
             result = my_cl.indices(x, y)
-            print(x, "+", y, "=", frac(str(result)))
+            print(x, "**", y, "=", frac(str(round(result, 10))))
 
+        if type(result) == float:
+            i = input('Do you want the answer displayed as a decimal to 4 d.p? Y or N').upper()
+            if i == 'Y':
+                print(round(result, 4))
+            elif i == 'N':
+                continue
+            else:
+                print('Invalid input')
+                break
     else:
         print("Invalid Input")
