@@ -1,18 +1,18 @@
-class Basic:
+class Basic:  # This is the superclass that will be inherited by other specialised calculators
 
-    def add(self, x, y):  # Add method
-        return x + y
+    def add(self, a, b):
+        return a + b
 
-    def subtract(self, x, y):  # Subtract method
-        return x - y
+    def subtract(self, a, b):
+        return a - b
 
-    def multiply(self, x, y):  # Multiplication method
-        return x * y
+    def multiply(self, a, b):
+        return a * b
 
-    def divide(self, x, y):  # Division method
-        return x / y
+    def divide(self, a, b):
+        return a / b
 
-    def indices(self, num,power): # Indices method
+    def indices(self, num, power):
         return num**power
 
 
@@ -31,28 +31,37 @@ while True:
     ch = int(input("Select operation: "))
 
     # Make sure the user have entered the valid choice
-    if ch in (1, 2, 3, 4, 5,6):
+    if ch in (1, 2, 3, 4, 5, 6):
 
         # first check whether user want to exit
-        if (ch == 6):
+        if ch == 6:
             print('Bye!')
             break
 
         # If not then ask fo the input and call appropriate methods
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
+        x = float(input("Enter first number: "))
+        y = float(input("Enter second number: "))
 
         # Print the equation and output
         if ch == 1:
-            print(x, "+", y, "=", my_cl.add(x, y))
+            result = my_cl.add(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 2:
-            print(x, "-", y, "=", my_cl.subtract(x, y))
+            result = my_cl.subtract(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 3:
-            print(x, "*", y, "=", my_cl.multiply(x, y))
+            result = my_cl.multiply(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 4:
-            print(x, "/", y, "=", my_cl.divide(x, y))
+            result = my_cl.divide(x, y)
+            print(x, "+", y, "=", result)
+
         elif ch == 5:
-            print(x, "**", y, "=", my_cl.indices(x, y))
+            result = my_cl.indices(x, y)
+            print(x, "+", y, "=", result)
 
     else:
         print("Invalid Input")
