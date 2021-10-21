@@ -1,3 +1,6 @@
+from fractions import Fraction as frac
+
+
 class Basic:  # This is the superclass that will be inherited by other specialised calculators
 
     def add(self, a, b):
@@ -13,7 +16,7 @@ class Basic:  # This is the superclass that will be inherited by other specialis
         return a / b
 
     def indices(self, num, power):
-        return num**power
+        return num ** power
 
 
 # create a calculator object
@@ -45,23 +48,23 @@ while True:
         # Print the equation and output
         if ch == 1:
             result = my_cl.add(x, y)
-            print(x, "+", y, "=", result)
+            print(x, "+", y, "=", frac(str(result)))
 
         elif ch == 2:
             result = my_cl.subtract(x, y)
-            print(x, "+", y, "=", result)
+            print(x, "+", y, "=", frac(str(result)))
 
         elif ch == 3:
             result = my_cl.multiply(x, y)
-            print(x, "+", y, "=", result)
+            print(x, "+", y, "=", frac(str(result)))
 
         elif ch == 4:
             result = my_cl.divide(x, y)
-            print(x, "+", y, "=", result)
+            print(x, "+", y, "=", frac(str(result)))
 
         elif ch == 5:
             result = my_cl.indices(x, y)
-            print(x, "+", y, "=", result)
+            print(x, "+", y, "=", frac(str(result)))
 
     else:
         print("Invalid Input")
