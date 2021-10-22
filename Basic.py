@@ -66,7 +66,8 @@ while True:
             result = my_cl.indices(x, y)
             print(x, "**", y, "=", frac(str(round(result, 10))))
 
-        if type(result) == float:
+        # Returns the result as a decimal if the user requests to
+        while result is not None:
             i = input('Do you want the answer displayed as a decimal to 4 d.p? Y or N').upper()
             if i == 'Y':
                 print(round(result, 4))
