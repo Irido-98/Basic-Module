@@ -42,8 +42,8 @@ while True:
             break
 
         # If not then ask fo the input and call appropriate methods
-        x = float(input("Enter first number: "))
-        y = float(input("Enter second number: "))
+        x = frac(float(input("Enter first number: ")))
+        y = frac(float(input("Enter second number: ")))
 
         # Print the equation and output
         if ch == 1:
