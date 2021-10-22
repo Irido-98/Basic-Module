@@ -70,7 +70,8 @@ while True:
         while result is not None:
             i = input('Do you want the answer displayed as a decimal to 4 d.p? Y or N').upper()
             if i == 'Y':
-                print(round(result, 4))
+                k = int(input('How many decimal places?'))
+                print(round(result, k))  # TODO: Make the result a decimal.
             elif i == 'N':
                 continue
             else:
