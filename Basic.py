@@ -68,7 +68,7 @@ while True:
 
         # Returns the result as a decimal if the user requests to
         while result is not None:
-            i = input('Do you want the answer displayed as a decimal to 4 d.p? Y or N').upper()
+            i = input('Do you want the answer displayed as a decimal? Y or N').upper()
             if i == 'Y':
                 k = int(input('How many decimal places?'))
                 print(round(float(result), k))  # TODO: Make the result a decimal.
