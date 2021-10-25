@@ -45,20 +45,19 @@ while True:
         # If not then ask fo the input and call appropriate methods
         x = input("Enter first number. ")
         if '/' in x:
-            k = float(fractions.Fraction(x))
+            x = float(fractions.Fraction(x))
 
         else:
-            k = frac(float(x))
+            x = frac(float(x))
 
         y = input("Enter second number. ")
         if '/' in y:
-            k = float(fractions.Fraction(y))
+            y = float(fractions.Fraction(y))
 
         else:
-            k = frac(float(y))
+            y = frac(float(y))
 
         # Print the equation and output
-        # TODO: fix print statements to not use round function and then rework documentation
         if ch == 1:
             result = my_cl.add(x, y)
             print(frac(str(round(result, 10))))
