@@ -1,3 +1,4 @@
+import fractions
 from fractions import Fraction as frac
 
 
@@ -42,8 +43,19 @@ while True:
             break
 
         # If not then ask fo the input and call appropriate methods
-        x = frac(float(input("Enter first number: ")))
-        y = frac(float(input("Enter second number: ")))
+        x = input("Enter first number. ")
+        if '/' in x:
+            x = float(fractions.Fraction(x))
+
+        else:
+            x = frac(float(x))
+
+        y = input("Enter second number. ")
+        if '/' in y:
+            y = float(fractions.Fraction(y))
+
+        else:
+            y = frac(float(y))
 
         # Print the equation and output
         if ch == 1:
@@ -71,7 +83,7 @@ while True:
             i = input('Do you want the answer displayed as a decimal? Y or N').upper()
             if i == 'Y':
                 k = int(input('How many decimal places?'))
-                print(round(float(result), k))  # TODO: Make the result a decimal.
+                print(round(float(result), k))
                 break
             elif i == 'N':
                 break
