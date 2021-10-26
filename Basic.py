@@ -35,7 +35,7 @@ while True:
     ch = int(input("Select operation: "))
 
     # Make sure the user have entered the valid choice
-    if ch in (1, 2, 3, 4, 5, 6):
+    if ch in range(1, 6):
 
         # first check whether user want to exit
         if ch == 6:
@@ -83,7 +83,7 @@ while True:
             i = input('Do you want the answer displayed as a decimal? Y or N').upper()
             if i == 'Y':
                 k = int(input('How many decimal places?'))
-                print(round(float(result), k))  # TODO: Make the result a decimal.
+                print(round(float(result), k))
                 break
             elif i == 'N':
                 break
