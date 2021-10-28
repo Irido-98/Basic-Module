@@ -1,5 +1,5 @@
 import fractions
-from fractions import Fraction as frac
+from fractions import Fraction as Frac
 
 
 class Basic:  # This is the superclass that will be inherited by other specialised calculators
@@ -48,35 +48,35 @@ while True:
             x = float(fractions.Fraction(x))
 
         else:
-            x = frac(float(x))
+            x = Frac(float(x))
 
         y = input("Enter second number. ")
         if '/' in y:
             y = float(fractions.Fraction(y))
 
         else:
-            y = frac(float(y))
+            y = Frac(float(y))
 
         # Print the equation and output. The frac function only works with strings
         if ch == 1:
             result = my_cl.add(x, y)
-            print(frac(str(round(result, 10))))
+            print(Frac(str(round(result, 10))))
 
         elif ch == 2:
             result = my_cl.subtract(x, y)
-            print(frac(str(round(result, 10))))
+            print(Frac(str(round(result, 10))))
 
         elif ch == 3:
             result = my_cl.multiply(x, y)
-            print(frac(str(round(result, 10))))
+            print(Frac(str(round(result, 10))))
 
         elif ch == 4:
             result = my_cl.divide(x, y)
-            print(frac(str(round(result, 10))))
+            print(Frac(str(round(result, 10))))
 
         elif ch == 5:
             result = my_cl.indices(x, y)
-            print(frac(str(round(result, 10))))
+            print(Frac(str(round(result, 10))))
 
         # Returns the result as a decimal if the user requests to
         while result is not None:
