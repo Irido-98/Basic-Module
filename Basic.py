@@ -35,7 +35,7 @@ while True:
     ch = int(input("Select operation: "))
 
     # Make sure the user have entered the valid choice
-    if ch in range(1, 6):
+    if ch in range(1, 7):
 
         # first check whether user want to exit
         if ch == 6:
