@@ -42,7 +42,7 @@ while True:
             print('Bye!')
             break
 
-        # If not then ask fo the input and call appropriate methods
+        # If not then ask for the input and call appropriate methods
         x = input("Enter first number. ")
         if '/' in x:
             x = float(fractions.Fraction(x))
@@ -57,7 +57,7 @@ while True:
         else:
             y = frac(float(y))
 
-        # Print the equation and output
+        # Print the equation and output. The frac function only works with strings
         if ch == 1:
             result = my_cl.add(x, y)
             print(frac(str(round(result, 10))))
@@ -80,15 +80,18 @@ while True:
 
         # Returns the result as a decimal if the user requests to
         while result is not None:
-            i = input('Do you want the answer displayed as a decimal? Y or N').upper()
-            if i == 'Y':
-                k = int(input('How many decimal places?'))
-                print(round(float(result), k))
-                break
-            elif i == 'N':
-                break
+            if result % 1 != 0:  # Checks if the result is a fraction/decimal
+                i = input('Do you want the answer displayed as a decimal? Y or N').upper()
+                if i == 'Y':
+                    k = int(input('How many decimal places?'))
+                    print(round(float(result), k))
+                    break
+                elif i == 'N':
+                    break
+                else:
+                    print('Invalid input')
+                    break
             else:
-                print('Invalid input')
                 break
     else:
-        print("Invalid Input")
+        print("Invalid Input.")
