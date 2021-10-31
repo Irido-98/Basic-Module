@@ -43,14 +43,14 @@ while True:
             break
 
         # If not then ask for the input and call appropriate methods
-        x = input("Enter first number. ")
+        x = input("Enter first number: ")
         if '/' in x:
             x = float(fractions.Fraction(x))
 
         else:
             x = Frac(float(x))
 
-        y = input("Enter second number. ")
+        y = input("Enter second number: ")
         if '/' in y:
             y = float(fractions.Fraction(y))
 
