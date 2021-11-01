@@ -24,8 +24,7 @@ class MainWindow(qtw.QWidget):
         self.layout().addWidget(my_entry)
 
         # Create a button
-        my_button = qtw.QPushButton('Press Me!',
-                                    clicked=lambda: press_it())
+        my_button = qtw.QPushButton('Press Me!', clicked=lambda: press_it())
         self.layout().addWidget(my_button)
 
         # Show the app
@@ -36,6 +35,7 @@ class MainWindow(qtw.QWidget):
             my_label.setText(f'Hello {my_entry.text()}!')
             # Clear entry box
             my_entry.setText("")
+
 
 app = qtw.QApplication([])
 mw = MainWindow()
