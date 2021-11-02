@@ -57,7 +57,7 @@ while True:
         else:
             y = Frac(float(y))
 
-        # Print the equation and output. The frac function only works with strings
+        # Print the equation and output. The Frac function only works with strings
         if ch == 1:
             result = my_cl.add(x, y)
             print(Frac(str(round(result, 10))))
