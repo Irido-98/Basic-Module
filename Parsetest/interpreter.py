@@ -35,6 +35,3 @@ class Interpreter:
 
     def visit_IndiceNode(self, node):
         return Number(self.visit(node.node_a).value ** self.visit(node.node_b).value)
-
-    def visit_SinNode(self, node):
-        return Number(function.sin(self.visit((node.node).value)))

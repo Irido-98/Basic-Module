@@ -12,7 +12,6 @@ class TokenType(Enum):
     LPAREN = 5
     RPAREN = 6
     INDICES = 7
-    SIN = 8
 
 
 @dataclass  # This is a decorator that allows us to hold different values

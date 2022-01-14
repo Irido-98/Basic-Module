@@ -74,10 +74,6 @@ class Parser:
             self.advance()
             return NumberNode(token.value)
 
-        elif token.type == TokenType.SIN:
-            self.advance()
-            return SinNode(self.factor())
-
         elif token.type == TokenType.PLUS:
             self.advance()
             return PlusNode(self.factor())

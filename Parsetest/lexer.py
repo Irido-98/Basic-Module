@@ -3,9 +3,6 @@ from tokens import Token, TokenType
 
 WHITESPACE = ' \n\t'  # What stuff will be ignored when iterating through
 DIGITS = '0123456789'
-SIN = 'sin'
-COS = 'cos'
-TAN = 'tan'
 
 
 class Lexer:
@@ -46,9 +43,6 @@ class Lexer:
             elif self.current_char == '^':
                 self.advance()
                 yield Token(TokenType.INDICES)
-            elif self.current_char == 's' and next(self.text) == 'i' and next(self.text) == 'n':
-                self.advance()
-                yield Token(TokenType.SIN)
             else:
                 raise Exception(f'Illegal Character {self.current_char}')
 
