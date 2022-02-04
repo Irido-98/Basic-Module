@@ -24,7 +24,8 @@ class Parser:
 
         result = self.expr()
 
-        if self.current_token is not None:  # If there still is a token after checking with rules, it is an error so raise error 
+        if self.current_token is not None:  # If there still is a token after checking with rules, it is an error so
+            # raise error
             self.raise_error()
         return result
 
@@ -42,18 +43,25 @@ class Parser:
         return result
 
     def term(self):  # Mid level rule, checks for multiply and divide symbols
-        result = self.factor()  # Checks for factors
+        result = self.op()  # Checks for factors
 
-        while self.current_token is not None and self.current_token.type in (TokenType.INDICES, TokenType.MULTIPLY, TokenType.DIVIDE):
-            if self.current_token.type == TokenType.INDICES:
+        while self.current_token is not None and self.current_token.type in (TokenType.MULTIPLY, TokenType.DIVIDE):
+
+            if self.current_token.type == TokenType.MULTIPLY:
                 self.advance()
-                result = IndiceNode(result, self.factor())
-            elif self.current_token.type == TokenType.MULTIPLY:
-                self.advance()
-                result = MultiplyNode(result, self.factor())
+                result = MultiplyNode(result, self.op())
             elif self.current_token.type == TokenType.DIVIDE:
                 self.advance()
-                result = DivideNode(result, self.factor())
+                result = DivideNode(result, self.op())
+
+        return result
+
+    def op(self):  # Mid level rule, checks for multiply and divide symbols
+        result = self.factor()  # Checks for factors
+
+        while self.current_token is not None and self.current_token.type == TokenType.INDICES:
+            self.advance()
+            result = IndiceNode(result, self.factor())
 
         return result
 
