@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.outputLabel.setFrameShape(QtWidgets.QFrame.Box)
         self.outputLabel.setFrameShadow(QtWidgets.QFrame.Raised)
         self.outputLabel.setLineWidth(1)
-        self.outputLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.outputLabel.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignLeading | QtCore.Qt.AlignVCenter)
         self.outputLabel.setObjectName("outputLabel")
         self.arrowButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.clear_it("<<"))
         self.arrowButton.setGeometry(QtCore.QRect(10, 110, 75, 75))
