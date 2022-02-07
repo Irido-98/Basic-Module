@@ -1,6 +1,4 @@
 from values import Number
-from functions import function
-import math
 
 
 class Interpreter:

@@ -37,6 +37,15 @@ def cos(x):
     return round(value, 5)
 
 
+def tan(x):
+    try:
+        value = sin(x) / cos(x)
+    except ZeroDivisionError:
+        return 'Math Error'
+
+    return round(value, 5)
+
+
 def exp(x):
     value = 1
     n = 200  # precision
@@ -48,20 +57,47 @@ def exp(x):
     return round(value, 5)
 
 
-def tan(x):
+def natlog(x):
     try:
-        value = sin(x) / cos(x)
-    except ZeroDivisionError:
+        value = math.log(x)
+    except ValueError:
         return 'Math Error'
+    return round(value, 5)
 
-    value = round(value, 5)
-    if value == -0.0:
-        value = 0.0
-    return value
+
+def base10log(x):
+    try:
+        value = math.log10(x)
+    except ValueError:
+        return 'Math Error'
+    return round(value, 5)
+
+
+def asin(x):
+    try:
+        value = math.asin(x)
+    except ValueError:
+        return 'Math Error'
+    return round(value, 5)
+
+
+def acos(x):
+    try:
+        value = math.acos(x)
+    except ValueError:
+        return 'Math Error'
+    return round(value, 5)
+
+
+def atan(x):
+    try:
+        value = math.atan(x)
+    except ValueError:
+        return 'Math Error'
+    return round(value, 5)
 
 
 pi = math.pi
-# print(sin(1.35))
-# print(cos(pi))
-#print(tan(pi / 2))
-print(exp(1))
+print(asin(1))
+print(acos(1))
+print(atan(1))
