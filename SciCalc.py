@@ -2,6 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from lexer import Lexer
 from parser_ import Parser
 from interpreter import Interpreter
+import functions
+
 
 equal = False
 class Ui_MainWindow(object):
@@ -143,19 +145,19 @@ class Ui_MainWindow(object):
         font.setPointSize(24)
         self.decimalButton.setFont(font)
         self.decimalButton.setObjectName("decimalButton")
-        self.sinButton = QtWidgets.QPushButton(self.centralwidget)
+        self.sinButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.trig_it('sin'))
         self.sinButton.setGeometry(QtCore.QRect(360, 110, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.sinButton.setFont(font)
         self.sinButton.setObjectName("sinButton")
-        self.cosButton = QtWidgets.QPushButton(self.centralwidget)
+        self.cosButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.trig_it('cos'))
         self.cosButton.setGeometry(QtCore.QRect(440, 110, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.cosButton.setFont(font)
         self.cosButton.setObjectName("cosButton")
-        self.tanButton = QtWidgets.QPushButton(self.centralwidget)
+        self.tanButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.trig_it('tan'))
         self.tanButton.setGeometry(QtCore.QRect(360, 200, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
@@ -207,6 +209,22 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def trig_it(self, pressed):
+        value = float(self.outputLabel.text())
+        if pressed == 'sin':
+            value = functions.sin(value)
+            self.outputLabel.setText(f'{value}')
+        elif pressed == 'cos':
+            value = functions.cos(value)
+            self.outputLabel.setText(f'{value}')
+        elif pressed == 'tan':
+            try:
+                value = functions.tan(value)
+                self.outputLabel.setText(f'{value}')
+            except ValueError:
+                self.outputlabel.setText('Math Error')
+
 
     def press_it(self, pressed):
         global equal

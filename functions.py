@@ -101,3 +101,4 @@ pi = math.pi
 print(asin(1))
 print(acos(1))
 print(atan(1))
+print(tan(pi/2))
