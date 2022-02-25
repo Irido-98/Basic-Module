@@ -4,8 +4,9 @@ from parser_ import Parser
 from interpreter import Interpreter
 import functions
 
-
 equal = False
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -21,7 +22,7 @@ class Ui_MainWindow(object):
         self.outputLabel.setFrameShape(QtWidgets.QFrame.Box)
         self.outputLabel.setFrameShadow(QtWidgets.QFrame.Raised)
         self.outputLabel.setLineWidth(1)
-        self.outputLabel.setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
+        self.outputLabel.setAlignment(QtCore.Qt.AlignLeft | QtCore.Qt.AlignLeading | QtCore.Qt.AlignVCenter)
         self.outputLabel.setObjectName("outputLabel")
         self.arrowButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.clear_it('<<'))
         self.arrowButton.setGeometry(QtCore.QRect(10, 110, 75, 75))
@@ -163,37 +164,43 @@ class Ui_MainWindow(object):
         font.setPointSize(18)
         self.tanButton.setFont(font)
         self.tanButton.setObjectName("tanButton")
-        self.asinButton = QtWidgets.QPushButton(self.centralwidget)
+        self.asinButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.atrig_it('asin'))
         self.asinButton.setGeometry(QtCore.QRect(440, 200, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.asinButton.setFont(font)
         self.asinButton.setObjectName("asinButton")
-        self.acosButton = QtWidgets.QPushButton(self.centralwidget)
+        self.acosButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.atrig_it('acos'))
         self.acosButton.setGeometry(QtCore.QRect(360, 290, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.acosButton.setFont(font)
         self.acosButton.setObjectName("acosButton")
-        self.atanButton = QtWidgets.QPushButton(self.centralwidget)
+        self.atanButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.atrig_it('atan'))
         self.atanButton.setGeometry(QtCore.QRect(440, 290, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.atanButton.setFont(font)
         self.atanButton.setObjectName("atanButton")
-        self.eButton = QtWidgets.QPushButton(self.centralwidget)
-        self.eButton.setGeometry(QtCore.QRect(360, 380, 75, 75))
+        self.eButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("e"))
+        self.eButton.setGeometry(QtCore.QRect(360, 380, 40, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.eButton.setFont(font)
         self.eButton.setObjectName("eButton")
-        self.natlogButton = QtWidgets.QPushButton(self.centralwidget)
+        self.piButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("𝝅"))
+        self.piButton.setGeometry(QtCore.QRect(395, 380, 40, 75))
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        self.piButton.setFont(font)
+        self.piButton.setObjectName("piButton")
+        self.natlogButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.log_it('natlog'))
         self.natlogButton.setGeometry(QtCore.QRect(440, 380, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.natlogButton.setFont(font)
         self.natlogButton.setObjectName("natlogButton")
-        self.log10Button = QtWidgets.QPushButton(self.centralwidget)
+        self.log10Button = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.log_it('log10'))
         self.log10Button.setGeometry(QtCore.QRect(360, 470, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -201,6 +208,9 @@ class Ui_MainWindow(object):
         self.log10Button.setObjectName("log10Button")
         self.eqsolverButton = QtWidgets.QPushButton(self.centralwidget)
         self.eqsolverButton.setGeometry(QtCore.QRect(440, 470, 75, 75))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.eqsolverButton.setFont(font)
         self.eqsolverButton.setObjectName("eqsolverButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -225,6 +235,33 @@ class Ui_MainWindow(object):
             except ValueError:
                 self.outputlabel.setText('Math Error')
 
+    def atrig_it(self, pressed):
+        value = float(self.outputLabel.text())
+        try:
+            if pressed == 'asin':
+                value = functions.asin(value)
+                self.outputLabel.setText(f'{value}')
+            elif pressed == 'acos':
+                value = functions.acos(value)
+                self.outputLabel.setText(f'{value}')
+            elif pressed == 'atan':
+                value = functions.tan(value)
+                self.outputLabel.setText(f'{value}')
+        except ValueError:
+            self.outputlabel.setText('Math Error')
+
+
+    def log_it(self, pressed):
+        value = float(self.outputLabel.text())
+        try:
+            if pressed == 'natlog':
+                value = functions.natlog(value)
+                self.outputLabel.setText(f'{value}')
+            elif pressed == 'log10':
+                value = functions.base10log(value)
+                self.outputLabel.setText(f'{value}')
+        except ValueError:
+            self.outputlabel.setText('Math Error')
 
     def press_it(self, pressed):
         global equal
@@ -297,10 +334,12 @@ class Ui_MainWindow(object):
         self.asinButton.setText(_translate("MainWindow", "asin"))
         self.acosButton.setText(_translate("MainWindow", "acos"))
         self.atanButton.setText(_translate("MainWindow", "atan"))
-        self.eButton.setText(_translate("MainWindow", "e^"))
+        self.eButton.setText(_translate("MainWindow", "e"))
+        self.piButton.setText(_translate("MainWindow", "𝝅"))
         self.natlogButton.setText(_translate("MainWindow", "ln"))
         self.log10Button.setText(_translate("MainWindow", "Log10"))
         self.eqsolverButton.setText(_translate("MainWindow", "eq solver"))
+
 
 if __name__ == "__main__":
     import sys
