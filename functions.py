@@ -97,8 +97,4 @@ def atan(x):
     return round(value, 5)
 
 
-pi = math.pi
-print(asin(1))
-print(acos(1))
-print(atan(1))
-print(tan(pi/2))
+

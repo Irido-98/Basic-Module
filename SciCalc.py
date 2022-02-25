@@ -3,6 +3,7 @@ from lexer import Lexer
 from parser_ import Parser
 from interpreter import Interpreter
 import functions
+from Ui_Roots import Ui_RootsWindow
 
 equal = False
 
@@ -206,7 +207,7 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.log10Button.setFont(font)
         self.log10Button.setObjectName("log10Button")
-        self.eqsolverButton = QtWidgets.QPushButton(self.centralwidget)
+        self.eqsolverButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.openRoots())
         self.eqsolverButton.setGeometry(QtCore.QRect(440, 470, 75, 75))
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -219,6 +220,33 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def openRoots(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_RootsWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.ui.stackedWidget.setCurrentWidget(self.ui.Home)
+
+        # Setting up buttons - Set up signal (how to pc knows it is clicked) and then slot (what it does)
+        self.ui.line_btn.clicked.connect(self.showlinear)
+        self.ui.quad_btn.clicked.connect(self.showquadratic)
+        self.ui.cube_btn.clicked.connect(self.showcubic)
+
+    def showlinear(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.Linear)
+        self.ui.lineSolve_btn.clicked.connect(self.rootsoutput)
+
+    def showquadratic(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.Quadratic)
+        self.ui.quadsolve_btn.clicked.connect(self.rootsoutput)
+
+    def showcubic(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.Cubic)
+        self.ui.cubesolve_btn.clicked.connect(self.rootsoutput)
+
+    def rootsoutput(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.Output)
 
     def trig_it(self, pressed):
         value = float(self.outputLabel.text())
