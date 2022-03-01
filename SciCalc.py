@@ -252,16 +252,22 @@ class Ui_MainWindow(object):
         value = float(self.outputLabel.text())
         if pressed == 'sin':
             value = functions.sin(value)
+            if value == -0.0:
+                value = 0.0
             self.outputLabel.setText(f'{value}')
         elif pressed == 'cos':
             value = functions.cos(value)
+            if value == -0.0:
+                value = 0.0
             self.outputLabel.setText(f'{value}')
         elif pressed == 'tan':
             try:
                 value = functions.tan(value)
+                if value == -0.0:
+                    value = 0.0
                 self.outputLabel.setText(f'{value}')
             except ValueError:
-                self.outputlabel.setText('Math Error')
+                self.outputLabel.setText('Math Error')
 
     def atrig_it(self, pressed):
         value = float(self.outputLabel.text())
@@ -276,7 +282,7 @@ class Ui_MainWindow(object):
                 value = functions.tan(value)
                 self.outputLabel.setText(f'{value}')
         except ValueError:
-            self.outputlabel.setText('Math Error')
+            self.outputLabel.setText('Math Error')
 
 
     def log_it(self, pressed):
@@ -289,7 +295,7 @@ class Ui_MainWindow(object):
                 value = functions.base10log(value)
                 self.outputLabel.setText(f'{value}')
         except ValueError:
-            self.outputlabel.setText('Math Error')
+            self.outputLabel.setText('Math Error')
 
     def press_it(self, pressed):
         global equal
