@@ -17,7 +17,7 @@ class MainWindow:
         self.main_win.show()
 
 
-# In case program is run from command line
+#In case program is run from command line
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     main_win = MainWindow()
