@@ -183,13 +183,13 @@ class Ui_MainWindow(object):
         font.setPointSize(15)
         self.atanButton.setFont(font)
         self.atanButton.setObjectName("atanButton")
-        self.eButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("e"))
+        self.eButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("2.718281"))
         self.eButton.setGeometry(QtCore.QRect(360, 380, 40, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
         self.eButton.setFont(font)
         self.eButton.setObjectName("eButton")
-        self.piButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("𝝅"))
+        self.piButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.press_it("3.1415926"))
         self.piButton.setGeometry(QtCore.QRect(395, 380, 40, 75))
         font = QtGui.QFont()
         font.setPointSize(18)
@@ -252,16 +252,22 @@ class Ui_MainWindow(object):
         value = float(self.outputLabel.text())
         if pressed == 'sin':
             value = functions.sin(value)
+            if value == -0.0:
+                value = 0.0
             self.outputLabel.setText(f'{value}')
         elif pressed == 'cos':
             value = functions.cos(value)
+            if value == -0.0:
+                value = 0.0
             self.outputLabel.setText(f'{value}')
         elif pressed == 'tan':
             try:
                 value = functions.tan(value)
+                if value == -0.0:
+                    value = 0.0
                 self.outputLabel.setText(f'{value}')
             except ValueError:
-                self.outputlabel.setText('Math Error')
+                self.outputLabel.setText('Math Error')
 
     def atrig_it(self, pressed):
         value = float(self.outputLabel.text())
@@ -276,7 +282,7 @@ class Ui_MainWindow(object):
                 value = functions.tan(value)
                 self.outputLabel.setText(f'{value}')
         except ValueError:
-            self.outputlabel.setText('Math Error')
+            self.outputLabel.setText('Math Error')
 
 
     def log_it(self, pressed):
@@ -289,7 +295,7 @@ class Ui_MainWindow(object):
                 value = functions.base10log(value)
                 self.outputLabel.setText(f'{value}')
         except ValueError:
-            self.outputlabel.setText('Math Error')
+            self.outputLabel.setText('Math Error')
 
     def press_it(self, pressed):
         global equal
